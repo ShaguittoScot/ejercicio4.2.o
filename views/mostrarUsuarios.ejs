@@ -1,0 +1,35 @@
+<%- include("templates/encabezado") %>
+<head>
+    <link rel="stylesheet" href="css/estilosTabla.css">
+</head>
+    <h1>Usuarios</h1>
+    <div class="contenedor">
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Celular</th>
+                <th>Correo</th>
+                <th>Editar / Borrar</th>
+            </thead>
+            <tbody>
+                <% usuariosCorrectos.forEach((usuario)=>{ %>
+                
+                <tr>
+                <td><%= usuario.idusuario %></td>
+                <td><%= usuario.nombre %></td>
+                <td><%= usuario.celular %></td>
+                <td><%= usuario.correo %></td>
+                <td>
+                    <a href="/editarUsuario/<%= usuario.idusuario %>">Editar</a> /
+                    <a href="/borrarUsuario/<%= usuario.idusuario %>">Borrar</a>
+                </td>
+            </tr>
+        <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <a href="/agregarUsuario">Agreagar Usuario </a>
+    <a href="/productos">Ver productos </a>
+    
+<%- include("templates/pie") %>
